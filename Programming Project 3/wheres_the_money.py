@@ -49,19 +49,26 @@ def wheres_the_money(salary, mortgage, bills, food, travel):
     table += ("|         bills | $   " + '${:,.2f}'.format(bills) + " |  " + str(round(bills / salary * 100, 1)) + "% |\n")
     table += ("|          food | $   " + '${:,.2f}'.format(food) + " | " + str(round(food / salary * 100, 1)) + "% |\n")
     table += ("|        travel | $   " + '${:,.2f}'.format(travel) + " | " + str(round(travel / salary * 100, 1)) + "% |\n")
-    table += ("|           tax | $   " + '${:,.2f}'.format(calculate_tax) + " | " + str(round(calculate_tax / salary * 100, 1)) + "% | " + "#" * int(calculate_tax // salary) + "\n") 
-    table += ("|         extra | $  " + '${:,.2f}'.format(extra)  + " | " + str(round(extra / salary * 100, 1)) + "% | " + "#" * int(extra // salary) + "\n")
+    table += ("|           tax | $   " + '${:,.2f}'.format(calculate_tax) + " | " + str(round(calculate_tax / salary * 100, 1)) + "% | " + "#" * int(calculate_tax // salary * 100) + "\n") 
+    table += ("|         extra | $  " + '${:,.2f}'.format(extra)  + " | " + str(round(extra / salary * 100, 1)) + "% | " + "#" * int(extra // salary * 100) + "\n")
     table += ("----------------------------------------------------------------------------")
 
     # determines if user reaches tax limit
 
     if calculate_tax >= 75000:
-        table += (">>> TAX LIMIT REACHED <<<")
+        table += (">>> TAX LIMIT REACHED <<<\n")
         table += ("Overspending")
 
     print(table)
 
 wheres_the_money(40000, 2000, 300, 150, 4000)
+
+
+# print(f'{totalPay:.2f}')
+
+# str(round(bills, 2))
+
+# '${:,.2f}'.format(1234.5)
 
 
 
